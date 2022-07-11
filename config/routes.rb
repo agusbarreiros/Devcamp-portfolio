@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :portfolios
+
+  resources :portfolios, except: [:show]
+
+  get 'portfolio/:id', to: 'portfolios#show', as: 'portfolio_show' #el as cambia el prefix para los views.
+
 
   get 'about', to: 'pages#about' #la parte de get puede decir lo que quieras siempre que lo linkees al routing corresp.
 
